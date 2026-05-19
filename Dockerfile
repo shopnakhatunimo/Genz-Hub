@@ -8,7 +8,7 @@ RUN npm install
 COPY resources/ ./resources/
 COPY vite.config.js tailwind.config.js postcss.config.js ./
 
-RUN npm run build
+RUN mkdir -p public && npm run build
 
 FROM php:8.2-fpm-alpine
 
@@ -23,7 +23,8 @@ RUN apk add --no-cache \
     oniguruma-dev \
     sqlite-dev \
     postgresql-dev \
-    supervisor
+    supervisor \
+    bash
 
 RUN docker-php-ext-install \
     pdo \
@@ -51,8 +52,11 @@ RUN composer run-script post-autoload-dump || true
 
 RUN cp .env.example .env \
     && php artisan key:generate --force \
+    && mkdir -p database \
     && touch database/database.sqlite \
-    && php artisan storage:link --force
+    && mkdir -p storage/framework/{sessions,views,cache} \
+    && mkdir -p storage/logs \
+    && mkdir -p bootstrap/cache
 
 RUN mkdir -p /var/log/supervisor \
     && chown -R www-data:www-data /var/www/html/storage \
@@ -62,7 +66,9 @@ RUN mkdir -p /var/log/supervisor \
 
 COPY docker/nginx.conf /etc/nginx/nginx.conf
 COPY docker/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+COPY docker/start.sh /start.sh
+RUN chmod +x /start.sh
 
 EXPOSE 8080
 
-CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
+CMD ["/start.sh"]

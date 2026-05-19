@@ -1,0 +1,16 @@
+node_modules
+vendor
+.git
+.env
+.env.backup
+public/build
+public/hot
+public/storage
+storage/logs/*
+storage/framework/cache/*
+storage/framework/sessions/*
+storage/framework/views/*
+bootstrap/cache/*
+attached_assets
+*.md
+.local
