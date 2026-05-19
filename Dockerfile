@@ -33,8 +33,8 @@ WORKDIR /var/www/html
 COPY composer.json ./
 RUN composer install --no-interaction --prefer-dist --optimize-autoloader --no-dev --no-scripts
 
-COPY package.json package-lock.json* ./
-RUN npm ci
+COPY package.json ./
+RUN npm install
 
 COPY . .
 
