@@ -1,0 +1,474 @@
+তুমি একজন expert senior full-stack Laravel developer, system architect এবং premium UI/UX ecommerce designer।
+
+আমার জন্য একটি সম্পূর্ণ professional, scalable, production-ready mobile-first ecommerce website তৈরি করো।
+
+====================================
+TECH STACK
+====================================
+
+Backend:
+- Laravel latest version
+
+Frontend:
+- Blade Template Engine
+- Tailwind CSS
+- Alpine.js (light interactions)
+- AJAX যেখানে প্রয়োজন
+
+Database:
+- MySQL
+
+Hosting Target:
+- Render
+
+Storage Ready:
+- Cloudinary/ImageKit/S3 compatible structure
+
+====================================
+WEBSITE LANGUAGE
+====================================
+
+ওয়েবসাইটের সম্পূর্ণ frontend এবং admin panel বাংলা ভাষায় হবে।
+
+সব button, menu, form, notification, error message, success message, invoice, order status, admin menu — সব বাংলায় লিখতে হবে।
+
+Examples:
+- Login → লগইন
+- Register → রেজিস্টার
+- Add to Cart → কার্টে যোগ করুন
+- Checkout → অর্ডার সম্পন্ন করুন
+- Dashboard → ড্যাশবোর্ড
+- Orders → অর্ডারসমূহ
+
+Use proper clean professional Bangla typography.
+
+====================================
+DESIGN REQUIREMENTS
+====================================
+
+Design Style:
+- Premium ecommerce design
+- Mobile-first
+- Modern clean UI
+- Smooth UX
+- Rounded cards
+- Soft shadows
+- Elegant spacing
+- Premium typography
+- Fast interaction
+- Professional color palette
+
+Design inspiration:
+- Amazon mobile UX
+- Daraz mobile UI
+- Shopify modern layouts
+
+But create a unique cleaner design.
+
+====================================
+MOBILE-FIRST REQUIREMENTS
+====================================
+
+The website must be primarily optimized for mobile users.
+
+Required mobile features:
+- Bottom navigation menu
+- Sticky mobile header
+- Sticky add-to-cart button
+- Swipeable banners
+- One-hand friendly navigation
+- Large touch-friendly buttons
+- Mobile optimized checkout
+- Smooth scrolling
+- Fast product loading
+- Responsive product grid
+- Skeleton loading
+- Lazy image loading
+
+====================================
+FRONTEND FEATURES
+====================================
+
+1. Homepage
+- Hero slider
+- Featured products
+- Trending products
+- Flash sale
+- Categories
+- Discount banners
+- Search bar
+- Promotional sections
+- Newsletter section
+- Footer section
+
+2. Authentication
+- Register
+- Login
+- Logout
+- Forgot password
+- Remember me
+- Secure authentication
+
+3. User Account
+- Profile update
+- Change password
+- Order history
+- Wishlist
+- Saved addresses
+- Profile image upload
+
+4. Product System
+- Product details
+- Multiple product images
+- Price & discount
+- Ratings & reviews
+- Product variants
+- Stock status
+- Related products
+- Add to cart
+- Buy now
+
+5. Category System
+- Categories
+- Subcategories
+- Product filtering
+- Sorting
+- Price range filter
+
+6. Search System
+- Live search
+- Product suggestions
+
+7. Cart System
+- AJAX cart
+- Quantity update
+- Remove item
+- Coupon support
+
+8. Checkout System
+- Simple mobile checkout
+- Cash on delivery
+- Online payment ready
+- Order summary
+
+9. Wishlist System
+- Save favorite products
+
+10. Review System
+- Star rating
+- Verified reviews
+
+11. Order Tracking
+- Order status tracking
+- Invoice page
+
+====================================
+ADMIN PANEL FEATURES
+====================================
+
+Create a complete professional admin panel in Bangla language.
+
+1. Dashboard
+- Sales analytics
+- Revenue stats
+- Recent orders
+- Top products
+- Graphs
+
+2. Product Management
+- Add/edit/delete products
+- Multiple image upload
+- Inventory management
+- Stock management
+
+3. Category Management
+- Category
+- Subcategory
+
+4. Order Management
+- View orders
+- Change order status
+- Invoice generation
+
+5. User Management
+- User list
+- Block/unblock user
+
+6. Coupon Management
+- Discount coupons
+
+7. Banner Management
+- Hero banners
+- Promotional banners
+
+8. Review Management
+- Approve/delete reviews
+
+9. Settings Management
+- General settings
+- SMTP settings
+- SEO settings
+- Social settings
+- Homepage settings
+- Payment settings
+
+====================================
+SMTP MAIL SYSTEM
+====================================
+
+Implement a complete dynamic SMTP mail system.
+
+Admin must be able to:
+- Connect Gmail SMTP
+- Change Gmail anytime
+- Update SMTP host
+- Update SMTP port
+- Update SMTP username
+- Update SMTP password
+- Enable TLS/SSL
+- Send test email
+
+Store SMTP settings dynamically in database.
+
+All emails must use configured SMTP settings.
+
+Required emails:
+- Welcome email
+- Registration email
+- Password reset email
+- Order confirmation email
+- Shipping email
+- Delivery email
+- Invoice email
+- Admin notification email
+- Newsletter email
+
+Use Laravel Mail system or PHPMailer properly.
+
+====================================
+DATABASE TABLES
+====================================
+
+Create complete migrations for:
+
+- users
+- admins
+- products
+- product_images
+- categories
+- subcategories
+- carts
+- cart_items
+- orders
+- order_items
+- wishlists
+- reviews
+- coupons
+- banners
+- settings
+- smtp_settings
+- addresses
+- newsletters
+- contacts
+- payments
+
+====================================
+PROFESSIONAL FOLDER STRUCTURE
+====================================
+
+app/
+├── Console/
+├── Exceptions/
+├── Helpers/
+├── Http/
+│   ├── Controllers/
+│   │   ├── Frontend/
+│   │   ├── Admin/
+│   │   ├── Auth/
+│   │   └── API/
+│   ├── Middleware/
+│   ├── Requests/
+│   └── Services/
+├── Mail/
+├── Models/
+├── Notifications/
+├── Providers/
+└── Traits/
+
+bootstrap/
+
+config/
+
+database/
+├── factories/
+├── migrations/
+├── seeders/
+
+public/
+├── assets/
+│   ├── css/
+│   ├── js/
+│   ├── images/
+│   ├── uploads/
+│   │   ├── products/
+│   │   ├── categories/
+│   │   ├── banners/
+│   │   ├── users/
+│   │   └── reviews/
+│   └── fonts/
+
+resources/
+├── css/
+├── js/
+├── views/
+│   ├── layouts/
+│   │   ├── frontend/
+│   │   └── admin/
+│   ├── frontend/
+│   │   ├── home/
+│   │   ├── shop/
+│   │   ├── cart/
+│   │   ├── checkout/
+│   │   ├── account/
+│   │   ├── auth/
+│   │   ├── orders/
+│   │   ├── wishlist/
+│   │   ├── category/
+│   │   └── components/
+│   ├── admin/
+│   │   ├── dashboard/
+│   │   ├── products/
+│   │   ├── categories/
+│   │   ├── orders/
+│   │   ├── users/
+│   │   ├── banners/
+│   │   ├── coupons/
+│   │   ├── reviews/
+│   │   ├── settings/
+│   │   └── components/
+│   ├── emails/
+│   └── errors/
+
+routes/
+├── web.php
+├── admin.php
+├── api.php
+└── auth.php
+
+storage/
+├── app/
+├── framework/
+├── logs/
+
+tests/
+vendor/
+
+====================================
+ADVANCED FEATURES
+====================================
+
+Implement:
+- Dynamic homepage sections
+- Dynamic SEO settings
+- AJAX add to cart
+- AJAX wishlist
+- Toast notifications
+- Product zoom
+- Related products
+- Recently viewed products
+- Dynamic footer
+- Dynamic social links
+- Dynamic logo/favicon
+- Newsletter subscription
+- Contact form
+- Maintenance mode
+- Pagination
+- Image optimization
+
+====================================
+SECURITY REQUIREMENTS
+====================================
+
+Implement:
+- CSRF protection
+- XSS protection
+- SQL injection prevention
+- Validation
+- Secure authentication
+- Middleware protection
+
+====================================
+PERFORMANCE REQUIREMENTS
+====================================
+
+Optimize:
+- Mobile speed
+- Lazy loading
+- Optimized queries
+- Eager loading
+- Reusable components
+- SEO friendly structure
+
+====================================
+SEO REQUIREMENTS
+====================================
+
+Implement:
+- Dynamic meta tags
+- OpenGraph tags
+- Clean URLs
+- Sitemap ready structure
+- Schema markup ready
+
+====================================
+RENDER DEPLOYMENT REQUIREMENTS
+====================================
+
+Prepare fully for Render deployment.
+
+Include:
+- render.yaml
+- .env.example
+- production optimization
+- cache commands
+- storage linking
+- queue-ready structure
+
+====================================
+CODE QUALITY
+====================================
+
+- Use clean scalable architecture
+- Use reusable Blade components
+- Use service pattern where needed
+- Use helper functions
+- Use proper validation
+- Keep controller clean
+- Follow Laravel best practices
+- Write production-ready code
+- Add comments in important sections
+
+====================================
+FINAL OUTPUT
+====================================
+
+Generate:
+- Full Laravel ecommerce project
+- Complete frontend
+- Complete admin panel
+- All migrations
+- Models
+- Controllers
+- Middleware
+- Services
+- Blade views
+- Tailwind setup
+- Authentication system
+- SMTP mail system
+- SEO system
+- Mobile-first responsive design
+- Bangla UI
+- Professional folder structure
+- Render deployment instructions
+
+The final website must feel like a real premium professional ecommerce platform optimized for Bangladeshi mobile users.
