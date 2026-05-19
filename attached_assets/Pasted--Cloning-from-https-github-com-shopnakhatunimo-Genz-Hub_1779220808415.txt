@@ -1,0 +1,50 @@
+==> Cloning from https://github.com/shopnakhatunimo/Genz-Hub
+==> Checking out commit d0abb903e1b20e7f1665be08e38d67027889412c in branch main
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.38kB done
+#1 DONE 0.0s
+#2 [internal] load metadata for docker.io/library/php:8.2-fpm-alpine
+#2 ...
+Menu
+#3 [auth] library/php:pull render-prod/docker-mirror-repository/library/php:pull token for us-west1-docker.pkg.dev
+#3 DONE 0.0s
+#4 [auth] library/composer:pull render-prod/docker-mirror-repository/library/composer:pull token for us-west1-docker.pkg.dev
+#4 DONE 0.0s
+#5 [internal] load metadata for docker.io/library/composer:2.7
+#5 DONE 0.6s
+#2 [internal] load metadata for docker.io/library/php:8.2-fpm-alpine
+#2 DONE 0.6s
+#6 [internal] load .dockerignore
+#6 transferring context: 2B done
+#6 DONE 0.0s
+#7 [internal] load build context
+#7 transferring context: 910.20kB 0.0s done
+#7 DONE 0.1s
+#8 [stage-0  3/16] RUN docker-php-ext-install     pdo     pdo_sqlite     pdo_mysql     pdo_pgsql     mbstring     zip     gd     bcmath     pcntl
+#8 CACHED
+#9 [stage-0  4/16] COPY --from=composer:2.7 /usr/bin/composer /usr/bin/composer
+#9 CACHED
+#10 [stage-0  5/16] WORKDIR /var/www/html
+#10 CACHED
+#11 [stage-0  2/16] RUN apk add --no-cache     nginx     nodejs     npm     git     curl     zip     unzip     libpng-dev     libzip-dev     oniguruma-dev     sqlite-dev     postgresql-dev     supervisor
+#11 CACHED
+#12 [stage-0  6/16] COPY composer.json composer.lock ./
+#12 ERROR: failed to calculate checksum of ref b3ockkqzs49lw0q2mxx3ba0xb::q64hp3noe9uwyl0ooq0wftz4o: "/composer.lock": not found
+#13 [stage-0  1/16] FROM docker.io/library/php:8.2-fpm-alpine@sha256:89ca299cb45f8a63a28fd4e564a9d6b916ae4b1fc5752b4e0b89b4ed688994a1
+#13 resolve docker.io/library/php:8.2-fpm-alpine@sha256:89ca299cb45f8a63a28fd4e564a9d6b916ae4b1fc5752b4e0b89b4ed688994a1 0.0s done
+#13 DONE 0.2s
+#14 FROM docker.io/library/composer:2.7@sha256:cb3483dc851665462a66c59982577dfbbde0ae2059e8b5550c2f49f44b8c333e
+#14 resolve docker.io/library/composer:2.7@sha256:cb3483dc851665462a66c59982577dfbbde0ae2059e8b5550c2f49f44b8c333e 0.0s done
+#14 DONE 0.2s
+------
+ > [stage-0  6/16] COPY composer.json composer.lock ./:
+------
+Dockerfile:33
+--------------------
+  31 |     WORKDIR /var/www/html
+  32 |     
+  33 | >>> COPY composer.json composer.lock ./
+  34 |     RUN composer install --no-interaction --prefer-dist --optimize-autoloader --no-dev --no-scripts
+  35 |     
+--------------------
+error: failed to solve: failed to compute cache key: failed to calculate checksum of ref b3ockkqzs49lw0q2mxx3ba0xb::q64hp3noe9uwyl0ooq0wftz4o: "/composer.lock": not found
