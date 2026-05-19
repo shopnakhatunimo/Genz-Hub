@@ -1,9 +1,20 @@
+FROM node:20-alpine AS node-builder
+
+WORKDIR /app
+
+COPY package.json ./
+RUN npm install
+
+COPY resources/ ./resources/
+COPY vite.config.js tailwind.config.js postcss.config.js ./
+COPY public/ ./public/
+
+RUN npm run build
+
 FROM php:8.2-fpm-alpine
 
 RUN apk add --no-cache \
     nginx \
-    nodejs \
-    npm \
     git \
     curl \
     zip \
@@ -33,12 +44,9 @@ WORKDIR /var/www/html
 COPY composer.json ./
 RUN composer install --no-interaction --prefer-dist --optimize-autoloader --no-dev --no-scripts
 
-COPY package.json ./
-RUN npm install
-
 COPY . .
 
-RUN npm run build
+COPY --from=node-builder /app/public/build ./public/build
 
 RUN composer run-script post-autoload-dump || true
 

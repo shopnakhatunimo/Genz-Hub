@@ -1,0 +1,51 @@
+#19 0.420     at Object.buildOrContext (/var/www/html/node_modules/esbuild/lib/main.js:699:5)
+#19 0.420     at /var/www/html/node_modules/esbuild/lib/main.js:2023:15
+#19 0.420     at new Promise (<anonymous>)
+#19 0.420     at Object.build (/var/www/html/node_modules/esbuild/lib/main.js:2022:25)
+#19 0.420     at build (/var/www/html/node_modules/esbuild/lib/main.js:1873:51)
+#19 0.420     at bundleConfigFile (file:///var/www/html/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:66845:24)
+#19 0.420 
+#19 0.420   The plugin "externalize-deps" was triggered by this import
+#19 0.420 
+#19 0.420     vite.config.js:2:20:
+#19 0.420       2 │ import laravel from 'laravel-vite-plugin';
+#19 0.420         ╵                     ~~~~~~~~~~~~~~~~~~~~~
+#19 0.420 
+#19 0.422 failed to load config from /var/www/html/vite.config.js
+#19 0.422 error during build:
+#19 0.422 Error: Build failed with 1 error:
+#19 0.422 node_modules/esbuild/lib/main.js:1225:27: ERROR: [plugin: externalize-deps] "laravel-vite-plugin" resolved to an ESM file. ESM file cannot be loaded by `require`. See https://vite.dev/guide/troubleshooting.html#this-package-is-esm-only for more details.
+#19 0.422     at failureErrorWithLog (/var/www/html/node_modules/esbuild/lib/main.js:1472:15)
+#19 0.422     at /var/www/html/node_modules/esbuild/lib/main.js:945:25
+#19 0.422     at runOnEndCallbacks (/var/www/html/node_modules/esbuild/lib/main.js:1315:45)
+#19 0.422     at buildResponseToResult (/var/www/html/node_modules/esbuild/lib/main.js:943:7)
+#19 0.422     at /var/www/html/node_modules/esbuild/lib/main.js:970:16
+#19 0.422     at responseCallbacks.<computed> (/var/www/html/node_modules/esbuild/lib/main.js:622:9)
+#19 0.422     at handleIncomingPacket (/var/www/html/node_modules/esbuild/lib/main.js:677:12)
+#19 0.422     at Socket.readFromStdout (/var/www/html/node_modules/esbuild/lib/main.js:600:7)
+#19 0.422     at Socket.emit (node:events:508:28)
+#19 0.422     at addChunk (node:internal/streams/readable:563:12)
+#19 ERROR: process "/bin/sh -c npm run build" did not complete successfully: exit code: 1
+------
+ > [stage-0 11/16] RUN npm run build:
+0.422     at failureErrorWithLog (/var/www/html/node_modules/esbuild/lib/main.js:1472:15)
+0.422     at /var/www/html/node_modules/esbuild/lib/main.js:945:25
+0.422     at runOnEndCallbacks (/var/www/html/node_modules/esbuild/lib/main.js:1315:45)
+0.422     at buildResponseToResult (/var/www/html/node_modules/esbuild/lib/main.js:943:7)
+0.422     at /var/www/html/node_modules/esbuild/lib/main.js:970:16
+0.422     at responseCallbacks.<computed> (/var/www/html/node_modules/esbuild/lib/main.js:622:9)
+0.422     at handleIncomingPacket (/var/www/html/node_modules/esbuild/lib/main.js:677:12)
+0.422     at Socket.readFromStdout (/var/www/html/node_modules/esbuild/lib/main.js:600:7)
+0.422     at Socket.emit (node:events:508:28)
+0.422     at addChunk (node:internal/streams/readable:563:12)
+------
+Dockerfile:41
+--------------------
+  39 |     COPY . .
+  40 |     
+Menu
+  41 | >>> RUN npm run build
+  42 |     
+  43 |     RUN composer run-script post-autoload-dump || true
+--------------------
+error: failed to solve: process "/bin/sh -c npm run build" did not complete successfully: exit code: 1
