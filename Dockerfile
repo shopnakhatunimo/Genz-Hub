@@ -41,22 +41,26 @@ COPY --from=composer:2.7 /usr/bin/composer /usr/bin/composer
 
 WORKDIR /var/www/html
 
-COPY composer.json ./
-RUN composer install --no-interaction --prefer-dist --optimize-autoloader --no-dev --no-scripts
-
 COPY . .
 
 COPY --from=node-builder /app/public/build ./public/build
 
-RUN composer run-script post-autoload-dump || true
+RUN COMPOSER_ALLOW_SUPERUSER=1 composer install \
+    --no-interaction \
+    --prefer-dist \
+    --optimize-autoloader \
+    --no-dev
 
 RUN cp .env.example .env \
     && php artisan key:generate --force \
     && mkdir -p database \
     && touch database/database.sqlite \
-    && mkdir -p storage/framework/{sessions,views,cache} \
+    && mkdir -p storage/framework/sessions \
+    && mkdir -p storage/framework/views \
+    && mkdir -p storage/framework/cache \
     && mkdir -p storage/logs \
-    && mkdir -p bootstrap/cache
+    && mkdir -p bootstrap/cache \
+    && php artisan storage:link --force
 
 RUN mkdir -p /var/log/supervisor \
     && chown -R www-data:www-data /var/www/html/storage \

@@ -1,0 +1,50 @@
+#27 0.374 Plugins have been disabled automatically as you are running as root, this may be the cause of the script failure.
+#27 0.374 See also https://getcomposer.org/root
+#27 DONE 0.4s
+#28 [stage-1 11/16] RUN cp .env.example .env     && php artisan key:generate --force     && mkdir -p database     && touch database/database.sqlite     && mkdir -p storage/framework/{sessions,views,cache}     && mkdir -p storage/logs     && mkdir -p bootstrap/cache
+#28 0.156 [2026-05-19 20:24:41] production.ERROR: Class "ServiceProvider" not found {"exception":"[object] (Error(code: 0): Class \"ServiceProvider\" not found at /var/www/html/config/app.php:22)
+#28 0.156 [stacktrace]
+#28 0.156 #0 /var/www/html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php(97): require()
+#28 0.156 #1 /var/www/html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php(97): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->Illuminate\\Foundation\\Bootstrap\\{closure}()
+#28 0.156 #2 /var/www/html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php(78): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFile(Object(Illuminate\\Config\\Repository), 'app', '/var/www/html/c...', Array)
+#28 0.156 #3 /var/www/html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php(39): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFiles(Object(Illuminate\\Foundation\\Application), Object(Illuminate\\Config\\Repository))
+#28 0.156 #4 /var/www/html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(342): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->bootstrap(Object(Illuminate\\Foundation\\Application))
+#28 0.156 #5 /var/www/html/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(474): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#28 0.156 #6 /var/www/html/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(196): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#28 0.156 #7 /var/www/html/artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#28 0.156 #8 {main}
+#28 0.156 "} 
+#28 0.157 
+#28 0.165 In app.php line 22:
+#28 0.165                                      
+#28 0.165   Class "ServiceProvider" not found  
+#28 0.165                                      
+#28 0.165 
+#28 ERROR: process "/bin/sh -c cp .env.example .env     && php artisan key:generate --force     && mkdir -p database     && touch database/database.sqlite     && mkdir -p storage/framework/{sessions,views,cache}     && mkdir -p storage/logs     && mkdir -p bootstrap/cache" did not complete successfully: exit code: 1
+------
+ > [stage-1 11/16] RUN cp .env.example .env     && php artisan key:generate --force     && mkdir -p database     && touch database/database.sqlite     && mkdir -p storage/framework/{sessions,views,cache}     && mkdir -p storage/logs     && mkdir -p bootstrap/cache:
+0.156 #6 /var/www/html/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(196): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+0.156 #7 /var/www/html/artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+0.156 #8 {main}
+0.156 "} 
+0.157 
+0.165 In app.php line 22:
+0.165                                      
+0.165   Class "ServiceProvider" not found  
+0.165                                      
+0.165 
+------
+Dockerfile:53
+--------------------
+  52 |     
+Menu
+  53 | >>> RUN cp .env.example .env \
+  54 | >>>     && php artisan key:generate --force \
+  55 | >>>     && mkdir -p database \
+  56 | >>>     && touch database/database.sqlite \
+  57 | >>>     && mkdir -p storage/framework/{sessions,views,cache} \
+  58 | >>>     && mkdir -p storage/logs \
+  59 | >>>     && mkdir -p bootstrap/cache
+  60 |     
+--------------------
+error: failed to solve: process "/bin/sh -c cp .env.example .env     && php artisan key:generate --force     && mkdir -p database     && touch database/database.sqlite     && mkdir -p storage/framework/{sessions,views,cache}     && mkdir -p storage/logs     && mkdir -p bootstrap/cache" did not complete successfully: exit code: 1
